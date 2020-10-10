@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Gitblit</Name>
+  <Repository>gitblit/gitblit</Repository>
+  <Registry>https://registry.hub.docker.com/r/gitblit/gitblit/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/gitblit/gitblit/issues/</Support>
+  <Project>http://www.gitblit.com/</Project>
+  <Overview>
+    Gitblit is an open source, pure Java Git solution for managing, viewing, and serving Git repositories.
+  </Overview>
+  <Category>Network:Management Productivity: Tools:Utilities</Category>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/juusujanar/unraid-templates/master/Gitblit.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/juusujanar/unraid-templates/master/img/Gitblit-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1587877878</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>
+    Gitblit is an open source, pure Java Git solution for managing, viewing, and serving Git repositories. It can serve repositories over the GIT, HTTP, and SSH transports; it can authenticate against multiple providers; and it allows you to get up-and-running with an attractive, capable Git server in less than 5 minutes.
+  </Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8080</HostPort>
+        <ContainerPort>8080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8443</HostPort>
+        <ContainerPort>8443</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitblit/config</HostDir>
+      <ContainerDir>/var/opt/gitblit/etc</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gitblit/repos</HostDir>
+      <ContainerDir>/var/opt/gitblit/srv</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment/>
+  <Labels/>
+  <Config Name="Web Http Port" Target="8080" Default="8080" Mode="tcp" Description="This is Gitblit WebUI http port." Type="Port" Display="always" Required="true" Mask="{8}">8080</Config>
+  <Config Name="Web Http Port" Target="8443" Default="8443" Mode="tcp" Description="This is Gitblit WebUI https port." Type="Port" Display="always" Required="true" Mask="{8}">8443</Config>
+  <Config Name="Config Path" Target="/var/opt/gitblit/etc" Default="/mnt/user/appdata/gitblit/config" Mode="rw" Description="This is where Gitblit will store it's configuration." Type="Path" Display="always" Required="true" Mask="{8}">/mnt/user/appdata/gitblit/config</Config>
+  <Config Name="Repos Path" Target="/var/opt/gitblit/srv" Default="/mnt/user/appdata/gitblit/repos" Mode="rw" Description="This is where Gitblit will store it's repositories." Type="Path" Display="always" Required="true" Mask="{8}">/mnt/user/appdata/gitblit/repos</Config>
+</Container>

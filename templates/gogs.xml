@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>gogs</Name>
+  <Repository>gogs/gogs</Repository>
+  <Registry>https://hub.docker.com/r/gogs/gogs/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>http://lime-technology.com/forum/index.php?topic=45925.0</Support>
+  <Project/>
+  <Overview>gogs https://gogs.io/ is a painless self-hosted Git service</Overview>
+  <Category>Cloud: Productivity: Tools:Utilities </Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/quimnut/unraid-docker-templates/master/quimnut/gogs.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/quimnut/unraid-docker-templates/master/quimnut/gogs.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1602289160</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Description>gogs https://gogs.io/ is a painless self-hosted Git service</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>8922</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8930</HostPort>
+        <ContainerPort>3000</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/gogs</HostDir>
+      <ContainerDir>/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>true</Value>
+      <Name>RUN_CROND</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port 1" Target="22" Default="8922" Mode="tcp" Description="Container Port: 22" Type="Port" Display="always" Required="true" Mask="false">8922</Config>
+  <Config Name="Host Port 2" Target="3000" Default="8930" Mode="tcp" Description="Container Port: 3000" Type="Port" Display="always" Required="true" Mask="false">8930</Config>
+  <Config Name="Host Path 1" Target="/data" Default="path to gogs data" Mode="rw" Description="Container Path: /data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/gogs</Config>
+  <Config Name="Key 1" Target="RUN_CROND" Default="true" Mode="" Description="Container Variable: RUN_CROND" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+</Container>
